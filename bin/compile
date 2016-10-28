@@ -7,6 +7,8 @@ set -o pipefail
 BUILD_DIR=$1
 CACHE_DIR=$2
 
+ls -la
+echo #PWD
 mkdir -p $CACHE_DIR
 
 CMAKE_URL="https://s3.amazonaws.com/mergeguard/cmake.tar.gz"
@@ -23,7 +25,7 @@ else
   tar -C /app/vendor -xf $CMAKE_BINARIES
 fi
 
-sleep 5
+echo #PWD
 
 cd $BUILD_DIR
 mkdir build
