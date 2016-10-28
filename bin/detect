@@ -2,7 +2,7 @@
 # bin/detect <build-dir>
 
 if [[ -f $1/CMakeLists.txt ]]; then
-  echo "CMakeLists.txt found" && exit 0
+  echo "C" && exit 0
 else
   echo "no" && exit 1
 fi
