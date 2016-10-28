@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
-echo "finding CMakeLists.txt"
-
 if [[ -f $1/CMakeLists.txt ]]; then
-  echo "CMakeLists.txt" && exit 0
+  echo "C" && exit 0
 else
   echo "no" && exit 1
 fi
