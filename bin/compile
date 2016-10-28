@@ -23,6 +23,8 @@ else
   tar -C /app/vendor -xf $CMAKE_BINARIES
 fi
 
+sleep 5
+
 cd $BUILD_DIR
 mkdir build
 cd build
