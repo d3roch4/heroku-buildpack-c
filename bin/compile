@@ -19,14 +19,14 @@ else
   curl -L $CMAKE_URL -o $CMAKE_BINARIES
 
   cd $BUILD_DIR
-  mkdir -p .heroku/vendor/bin
-  tar -C .heroku/vendor -xf $CMAKE_BINARIES
+  mkdir -p /app/vendor/bin
+  tar -C /app/vendor -xf $CMAKE_BINARIES
 fi
 
 cd $BUILD_DIR
 mkdir build
 cd build
-.heroku/vendor/bin/cmake ..
+/app/vendor/bin/cmake ..
 echo "-----> Configuring CMake"
 
 # make
