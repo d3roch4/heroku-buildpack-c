@@ -7,6 +7,23 @@ set -o pipefail
 BUILD_DIR=$1
 CACHE_DIR=$2
 
+mkdir -p $CACHE_DIR
+
+CMAKE_URL="https://s3.amazonaws.com/mergeguard/cmake.tar.gz"
+CMAKE_BINARIES="$CACHE_DIR/cmake.tar.gz"
+
+if [ -f $CMAKE_BINARIES ]; then
+  echo "Using cmake binaries from cache"
+else
+  echo "Downloading binaries ($CMAKE_URL)"
+  curl -L $CMAKE_URL -o $CMAKE_BINARIES
+
+  cd $BUILD_DIR
+  mkdir -p .heroku/vendor/bin
+  tar -C .heroku/vendor -xf $CMAKE_BINARIES
+fi
+
+cd $BUILD_DIR
 mkdir build
 cd build
 cmake ..
