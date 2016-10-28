@@ -7,9 +7,9 @@ set -o pipefail
 BUILD_DIR=$1
 CACHE_DIR=$2
 
-mkdir $BUILD_DIR
-cd $BUILD_DIR
-cmake $ENV_DIR
+mkdir build
+cd build
+cmake ..
 echo "-----> Configuring CMake"
 
 # make
