@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
+
+echo "CMakeLists.txt" && exit 0
   
 if [ -e $1/CMakeLists.txt ]; then
   echo "C" && exit 0
