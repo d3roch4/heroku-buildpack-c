@@ -7,15 +7,15 @@ set -o pipefail
 BUILD_DIR=$1
 CACHE_DIR=$2
 
-echo "instaling cmake"
-wget https://github.com/Munett/cmake-binary/raw/master/cmake.tar.gz -O cmake.tgz
-mkdir -p /app/vendor/cmake
-tar xzvf cmake.tgz -C /app/vendor/cmake
+#echo "instaling cmake"
+#wget https://github.com/Munett/cmake-binary/raw/master/cmake.tar.gz -O cmake.tgz
+#mkdir -p /app/vendor/cmake
+#tar xzvf cmake.tgz -C /app/vendor/cmake
 
 cd $BUILD_DIR
 mkdir build
 cd build
-/app/vendor/cmake/bin/cmake ..
+cmake -DBOOST_LIBRARYDIR=.apt/usr/lib/x86_64-linux-gnu/ ..
 echo "-----> Configuring CMake"
 
 # make
