@@ -7,13 +7,16 @@ set -o pipefail
 BUILD_DIR=$1
 CACHE_DIR=$2
 
-echo "working in $PWD \n BUILD_DIR: $BUILD_DIR \n CACHE_DIR: $CACHE_DIR"
+echo "instaling cmake"
+if [ -e /app/cmake-3.1.0-Linux-x86_64/bin/cmake ]; then
+  wget https://github.com/Munett/cmake-binary/raw/master/cmake.tar.gz -O cmake.tgz
+  tar xzvf cmake.tgz -C /app
+fi
 
 cd $BUILD_DIR
-
 mkdir build
 cd build
-cmake -DBoost_LIBRARY_DIRS=.apt/usr/lib/x86_64-linux-gnu/ ..
+/app/cmake-3.1.0-Linux-x86_64/bin/cmake ..
 echo "-----> Configuring CMake"
 
 # make
