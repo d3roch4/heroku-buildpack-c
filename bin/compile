@@ -9,7 +9,7 @@ CACHE_DIR=$2
 
 echo "working in $PWD \n BUILD_DIR: $BUILD_DIR \n CACHE_DIR: $CACHE_DIR"
 
-
+cd $BUILD_DIR
 
 mkdir build
 cd build
