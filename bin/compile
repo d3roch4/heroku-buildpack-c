@@ -13,7 +13,7 @@ cd $BUILD_DIR
 
 mkdir build
 cd build
-cmake ..
+cmake -DBoost_LIBRARY_DIRS=.apt/usr/lib/x86_64-linux-gnu/ ..
 echo "-----> Configuring CMake"
 
 # make
