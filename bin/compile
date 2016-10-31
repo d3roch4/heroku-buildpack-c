@@ -8,15 +8,14 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 
 echo "instaling cmake"
-if [ -f /app/cmake-3.1.0-Linux-x86_64/bin/cmake ]; then
-  wget https://github.com/Munett/cmake-binary/raw/master/cmake.tar.gz -O cmake.tgz
-  tar xzvf cmake.tgz -C /app
-fi
+wget https://github.com/Munett/cmake-binary/raw/master/cmake.tar.gz -O cmake.tgz
+mkdir -p /app/vendor/cmake
+tar xzvf cmake.tgz -C /app/vendor/cmake
 
 cd $BUILD_DIR
 mkdir build
 cd build
-/app/cmake-3.1.0-Linux-x86_64/bin/cmake ..
+/app/vendor/cmake/bin/cmake ..
 echo "-----> Configuring CMake"
 
 # make
