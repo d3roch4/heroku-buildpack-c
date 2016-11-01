@@ -15,8 +15,8 @@ CACHE_DIR=$2
 echo "-----> Configuring CMake"
 cd /app
 mkdir build
-mkdir -p 
-cd build $BUILD_DIR/usr/
+mkdir -p $BUILD_DIR/usr/
+cd build 
 cmake -DBOOST_LIBRARYDIR=.apt/usr/lib/x86_64-linux-gnu/ -DCMAKE_INSTALL_PREFIX:PATH=$BUILD_DIR/usr $BUILD_DIR 
 
 # make
