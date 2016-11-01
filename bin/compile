@@ -12,12 +12,16 @@ CACHE_DIR=$2
 #mkdir -p /app/vendor/cmake
 #tar xzvf cmake.tgz -C /app/vendor/cmake
 
-cd $BUILD_DIR
+echo "-----> Configuring CMake"
+cd /app
 mkdir build
 cd build
-cmake -DBOOST_LIBRARYDIR=.apt/usr/lib/x86_64-linux-gnu/ ..
-echo "-----> Configuring CMake"
+cmake -DBOOST_LIBRARYDIR=.apt/usr/lib/x86_64-linux-gnu/ -DCMAKE_INSTALL_PREFIX:PATH=/app/usr $BUILD_DIR 
 
 # make
 echo "-----> Compiling with Make"
 make
+
+echo "-----> Instaling"
+#makdir -p $BUILD_DIR/usr
+#make install
