@@ -24,5 +24,8 @@ echo "-----> Compiling with Make"
 make
 
 echo "-----> Instaling"
-makdir -p $BUILD_DIR/usr
+mkdir -p $BUILD_DIR/usr
 make install
+cd ..
+rm -rf build
+echo "-----> Compilation finish"
