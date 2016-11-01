@@ -13,7 +13,7 @@ CACHE_DIR=$2
 #tar xzvf cmake.tgz -C /app/vendor/cmake
 
 echo "-----> Configuring CMake"
-cd /app
+cd $BUILD_DIR 
 mkdir build
 mkdir -p $BUILD_DIR/usr/
 cd build 
