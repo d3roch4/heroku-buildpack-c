@@ -28,4 +28,5 @@ mkdir -p $BUILD_DIR/usr
 make install
 cd ..
 rm -rf build
+rm -rf $BUILD_DIR/usr/include $BUILD_DIR/usr/*/*.a $BUILD_DIR/usr/lib/cmake $BUILD_DIR/usr/lib/pkgconfig
 echo "-----> Compilation finish"
