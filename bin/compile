@@ -6,6 +6,7 @@ set -o pipefail
 
 BUILD_DIR=$1
 CACHE_DIR=$2
+INSTALL_DIR=$BUILD_DIR
 
 #echo "instaling cmake"
 #wget https://github.com/Munett/cmake-binary/raw/master/cmake.tar.gz -O cmake.tgz
@@ -15,18 +16,17 @@ CACHE_DIR=$2
 echo "-----> Configuring CMake"
 cd $BUILD_DIR 
 mkdir build
-mkdir -p $BUILD_DIR/usr/
 cd build 
-cmake -DBOOST_LIBRARYDIR=.apt/usr/lib/x86_64-linux-gnu/ -DCMAKE_INSTALL_PREFIX:PATH=$BUILD_DIR/usr $BUILD_DIR 
+cmake -DBOOST_LIBRARYDIR=.apt/usr/lib/x86_64-linux-gnu/ -DCMAKE_INSTALL_PREFIX:PATH=$INSTALL_DIR $BUILD_DIR 
 
 # make
 echo "-----> Compiling with Make"
 make
 
 echo "-----> Instaling"
-mkdir -p $BUILD_DIR/usr
+mkdir -p $INSTALL_DIR
 make install
 cd ..
 rm -rf build
-rm -rf $BUILD_DIR/usr/include $BUILD_DIR/usr/*/*.a $BUILD_DIR/usr/lib/cmake $BUILD_DIR/usr/lib/pkgconfig
+rm -rf $INSTALL_DIR/include $INSTALL_DIR/*/*.a $INSTALL_DIR/lib/cmake $INSTALL_DIR/lib/pkgconfig
 echo "-----> Compilation finish"
