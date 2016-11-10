@@ -14,7 +14,7 @@ if [ ! -e $CACHE_DIR/cmake/bin/cmake ]; then
   mkdir -p $CACHE_DIR/cmake
   tar xzvf cmake.tgz -C $CACHE_DIR/cmake
   PATH=$CACHE_DIR/cmake/bin:$PATH
-if
+fi
 
 echo "-----> Configuring CMake"
 cd $BUILD_DIR 
