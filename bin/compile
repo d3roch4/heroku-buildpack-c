@@ -8,10 +8,13 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 INSTALL_DIR=$BUILD_DIR
 
-#echo "instaling cmake"
-#wget https://github.com/Munett/cmake-binary/raw/master/cmake.tar.gz -O cmake.tgz
-#mkdir -p /app/vendor/cmake
-#tar xzvf cmake.tgz -C /app/vendor/cmake
+if [ ! -e $CACHE_DIR/cmake/bin/cmake ]; then
+  echo "instaling cmake"
+  wget https://github.com/Munett/cmake-binary/raw/master/cmake.tar.gz -O cmake.tgz
+  mkdir -p $CACHE_DIR/cmake
+  tar xzvf cmake.tgz -C $CACHE_DIR/cmake
+  PATH=$CACHE_DIR/cmake/bin:$PATH
+if
 
 echo "-----> Configuring CMake"
 cd $BUILD_DIR 
