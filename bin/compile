@@ -17,7 +17,7 @@ echo "-----> Configuring CMake"
 cd $BUILD_DIR 
 mkdir build
 cd build 
-cmake -DBOOST_LIBRARYDIR=.apt/usr/lib/x86_64-linux-gnu/ -DCMAKE_INSTALL_PREFIX:PATH=$INSTALL_DIR $BUILD_DIR 
+cmake -DHEROKU=ON -DCMAKE_INSTALL_PREFIX:PATH=$INSTALL_DIR $BUILD_DIR 
 
 # make
 echo "-----> Compiling with Make"
