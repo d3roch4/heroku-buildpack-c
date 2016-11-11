@@ -8,6 +8,10 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 INSTALL_DIR=$BUILD_DIR
 
+echo "$CACHE_DIR"
+ls -l $CACHE_DIR
+ls -l $CACHE_DIR/*
+
 if [ ! -e $CACHE_DIR/cmake/bin/cmake ]; then
   echo "instaling cmake"
   wget https://github.com/Munett/cmake-binary/raw/master/cmake.tar.gz -O cmake.tgz
@@ -20,7 +24,7 @@ echo "-----> Configuring CMake"
 cd $BUILD_DIR 
 mkdir build
 cd build 
-cmake -DHEROKU=ON -DCMAKE_INSTALL_PREFIX:PATH=$INSTALL_DIR $BUILD_DIR 
+cmake -DBOOST_INCLUDEDIR=$CACHE_DIR/include -DBOOST_LIBRARYDIR=$CACHE_DIR/lib -DCMAKE_INSTALL_PREFIX:PATH=$INSTALL_DIR $BUILD_DIR 
 
 # make
 echo "-----> Compiling with Make"
