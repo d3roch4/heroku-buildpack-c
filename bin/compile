@@ -19,8 +19,8 @@ if [ ! -e $CACHE_DIR/cmake/bin/cmake ]; then
   wget https://github.com/Munett/cmake-binary/raw/master/cmake.tar.gz -O cmake.tgz
   mkdir -p $CACHE_DIR/cmake
   tar xzvf cmake.tgz -C $CACHE_DIR/cmake
-  PATH=$CACHE_DIR/cmake/bin:$PATH
 fi
+PATH=$CACHE_DIR/cmake/bin:$PATH
 
 echo "-----> Configuring CMake"
 cd $BUILD_DIR 
