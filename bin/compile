@@ -11,6 +11,8 @@ INSTALL_DIR=$BUILD_DIR
 echo "$CACHE_DIR"
 ls -l $CACHE_DIR
 ls -l $CACHE_DIR/*
+echo "$BOOST_INCLUDEDIR"
+echo "$BOOST_LIBRARYDIR"
 
 if [ ! -e $CACHE_DIR/cmake/bin/cmake ]; then
   echo "instaling cmake"
