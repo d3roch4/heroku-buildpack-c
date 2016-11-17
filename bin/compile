@@ -30,7 +30,7 @@ cmake -DCMAKE_USE_OPENSSL=ON -DBOOST_INCLUDEDIR=$CACHE_DIR/include -DBOOST_LIBRA
 
 # make
 echo "-----> Compiling with Make"
-make
+make -j 4
 
 echo "-----> Instaling"
 mkdir -p $INSTALL_DIR
