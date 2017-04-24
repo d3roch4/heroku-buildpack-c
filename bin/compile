@@ -30,7 +30,7 @@ cmake -DCMAKE_USE_OPENSSL=ON -DINSTALL_DEPS=$CACHE_DIR -DBOOST_INCLUDEDIR=$CACHE
 
 # make
 echo "-----> Compiling with Make"
-make -j 4
+make
 
 echo "-----> Instaling"
 mkdir -p $INSTALL_DIR
