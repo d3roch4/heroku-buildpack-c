@@ -26,6 +26,7 @@ echo "-----> Configuring CMake"
 cd $BUILD_DIR 
 mkdir build
 cd build 
+export CXXFLAGS=-isystem\ /app/tmp/cache/include
 cmake -DCMAKE_USE_OPENSSL=ON -DINSTALL_DEPS=$CACHE_DIR -DBOOST_INCLUDEDIR=$CACHE_DIR/include -DBOOST_LIBRARYDIR=$CACHE_DIR/lib -DCMAKE_INSTALL_PREFIX:PATH=$INSTALL_DIR $BUILD_DIR 
 
 # make
