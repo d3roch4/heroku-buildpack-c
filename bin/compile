@@ -8,26 +8,12 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 INSTALL_DIR=$BUILD_DIR
 
-echo "$CACHE_DIR"
-ls -l $CACHE_DIR
-ls -l $CACHE_DIR/*
-echo "$BOOST_INCLUDEDIR"
-echo "$BOOST_LIBRARYDIR"
-
-if [ ! -e $CACHE_DIR/cmake/bin/cmake ]; then
-  echo "instaling cmake"
-  wget https://raw.githubusercontent.com/Munett/cmake-binary/master/cmake.tar.gz -O cmake.tar.gz
-  mkdir -p $CACHE_DIR/cmake
-  tar xzvf cmake.tgz -C $CACHE_DIR/cmake
-fi
-PATH=$CACHE_DIR/cmake/bin:$PATH
-
 echo "-----> Configuring CMake"
 cd $BUILD_DIR 
 mkdir build
 cd build 
 export CXXFLAGS=-isystem\ /app/tmp/cache/include
-cmake -DCMAKE_USE_OPENSSL=ON -DBOOST_INCLUDEDIR=$CACHE_DIR/include -DBOOST_LIBRARYDIR=$CACHE_DIR/lib -DCMAKE_INSTALL_PREFIX:PATH=$INSTALL_DIR $BUILD_DIR 
+cmake -DCMAKE_USE_OPENSSL=ON -DCMAKE_INSTALL_PREFIX:PATH=$INSTALL_DIR $BUILD_DIR 
 
 # make
 echo "-----> Compiling with Make"
