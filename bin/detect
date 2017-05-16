@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
   
-if [ -e $1/CMakeLists.txt ]; then
-  echo "CMakeLists.txt" && exit 0
+if [ -e $1/make.sh ]; then
+  echo "make.sh" && exit 0
 else
   echo "no" && exit 1
 fi
