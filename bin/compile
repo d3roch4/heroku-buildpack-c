@@ -7,11 +7,15 @@ set -o pipefail
 BUILD_DIR=$1
 CACHE_DIR=$2
 INSTALL_DIR=$BUILD_DIR
+echo "------> Using the directory BUILD_DIR: "$BUILD_DIR
+echo "------> Using the directory CACHE_DIR: "$CACHE_DIR
+echo "------> Using the directory INSTALL_DIR: "$INSTALL_DIR
 
 echo "-----> Configuring CMake"
 cd $BUILD_DIR 
 mkdir build
 cd build 
+echo "------> Using the directory: "$PWD
 export CXXFLAGS=-isystem\ /app/tmp/cache/include
 cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR .. 
 
