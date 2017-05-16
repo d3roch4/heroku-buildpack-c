@@ -4,28 +4,7 @@
 set -e
 set -o pipefail
 
-BUILD_DIR=$1
-CACHE_DIR=$2
-INSTALL_DIR=$BUILD_DIR
-echo "------> Using the directory BUILD_DIR: "$BUILD_DIR
-echo "------> Using the directory CACHE_DIR: "$CACHE_DIR
-echo "------> Using the directory INSTALL_DIR: "$INSTALL_DIR
-
-echo "-----> Configuring CMake"
-cd $BUILD_DIR 
-mkdir build
-cd build 
-echo "------> Using the directory: "$PWD
-export CXXFLAGS=-isystem\ /app/tmp/cache/include
-cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR .. 
-
-# make
-echo "-----> Compiling with Make"
-make printnow-root
-
-echo "-----> Instaling"
-make install
-cd ..
-rm -rf build
-rm -rf $INSTALL_DIR/include $INSTALL_DIR/*/*.a $INSTALL_DIR/lib/cmake $INSTALL_DIR/lib/pkgconfig
+echo "-----> Initing Make"
+chmod +x make.sh
+./make.sh
 echo "-----> Compilation finish"
