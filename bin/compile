@@ -14,13 +14,13 @@ ls -l $CACHE_DIR/*
 echo "$BOOST_INCLUDEDIR"
 echo "$BOOST_LIBRARYDIR"
 
-#if [ ! -e $CACHE_DIR/cmake/bin/cmake ]; then
-#  echo "instaling cmake"
-#  wget https://github.com/Munett/cmake-binary/raw/master/cmake.tar.gz -O cmake.tgz
-#  mkdir -p $CACHE_DIR/cmake
-#  tar xzvf cmake.tgz -C $CACHE_DIR/cmake
-#fi
-#PATH=$CACHE_DIR/cmake/bin:$PATH
+if [ ! -e $CACHE_DIR/cmake/bin/cmake ]; then
+  echo "instaling cmake"
+  wget https://raw.githubusercontent.com/Munett/cmake-binary/master/cmake.tar.gz -O cmake.tar.gz
+  mkdir -p $CACHE_DIR/cmake
+  tar xzvf cmake.tgz -C $CACHE_DIR/cmake
+fi
+PATH=$CACHE_DIR/cmake/bin:$PATH
 
 echo "-----> Configuring CMake"
 cd $BUILD_DIR 
