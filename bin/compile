@@ -21,7 +21,7 @@ cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR ..
 
 # make
 echo "-----> Compiling with Make"
-make
+make printnow-root
 
 echo "-----> Instaling"
 make install
