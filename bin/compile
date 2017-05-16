@@ -27,14 +27,13 @@ cd $BUILD_DIR
 mkdir build
 cd build 
 export CXXFLAGS=-isystem\ /app/tmp/cache/include
-cmake -DCMAKE_USE_OPENSSL=ON -DBOOST_INCLUDEDIR=$CACHE_DIR/include -DBOOST_LIBRARYDIR=$CACHE_DIR/lib -DCMAKE_INSTALL_PREFIX:PATH=$INSTALL_DIR -DCACHE_BUILD_DIR=$BUILD_DIR $BUILD_DIR 
+cmake -DCMAKE_USE_OPENSSL=ON -DBOOST_INCLUDEDIR=$CACHE_DIR/include -DBOOST_LIBRARYDIR=$CACHE_DIR/lib -DCMAKE_INSTALL_PREFIX:PATH=$INSTALL_DIR $BUILD_DIR 
 
 # make
 echo "-----> Compiling with Make"
 make
 
 echo "-----> Instaling"
-mkdir -p $INSTALL_DIR
 make install
 cd ..
 rm -rf build
