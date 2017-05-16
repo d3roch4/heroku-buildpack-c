@@ -5,6 +5,7 @@ set -e
 set -o pipefail
 
 echo "-----> Initing Make"
+cd $1
 chmod +x make.sh
 ./make.sh
 echo "-----> Compilation finish"
