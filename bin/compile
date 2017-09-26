@@ -4,8 +4,11 @@
 set -e
 set -o pipefail
 
+BUILD_DIR=$1
+CACHE_DIR=$2
+
 echo "-----> Initing Make"
 cd $1
 chmod +x make.sh
-./make.sh $1
+./make.sh $BUILD_DIR $CACHE_DIR
 echo "-----> Compilation finish"
